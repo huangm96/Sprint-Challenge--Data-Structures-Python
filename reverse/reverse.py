@@ -60,7 +60,6 @@ class LinkedList:
     current = self.head
     while storage.len():
       new_value = storage.pop()
-      print(new_value)
       current.value = new_value
       current = current.get_next()
     
