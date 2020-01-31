@@ -1,3 +1,8 @@
+
+import sys
+sys.path.append('./reverse')
+from dll_stack import Stack
+
 class Node:
   def __init__(self, value=None, next_node=None):
     # the value at this linked list node
@@ -15,7 +20,7 @@ class Node:
     # set this node's next_node reference to the passed in node
     self.next_node = new_next
 
-class LinkedList:
+class LinkedList: 
   def __init__(self):
     # reference to the head of the list
     self.head = None
@@ -44,4 +49,18 @@ class LinkedList:
 
   def reverse_list(self):
     # TO BE COMPLETED
-    pass
+    # create a stack
+    # while current, add to stack(LIFO)
+    # while stack.len(), pop, rewrite 
+    storage = Stack()
+    current = self.head
+    while current:
+      storage.push(current.get_value())
+      current = current.get_next()
+    current = self.head
+    while storage.len():
+      new_value = storage.pop()
+      print(new_value)
+      current.value = new_value
+      current = current.get_next()
+    
